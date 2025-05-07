@@ -35,29 +35,43 @@ document.addEventListener('DOMContentLoaded', () => {
             holes.push(hole);
 
             hole.addEventListener('click', () => {
-                if (!gameActive || !hole.classList.contains('up')) return; // Only process clicks if game active and character is up
+                if (!gameActive) return; // Ignore clicks if game isn't active
 
-                const characterType = hole.dataset.type;
-                hole.classList.remove('up'); // Hide character immediately
+                if (hole.classList.contains('up')) {
+                    // --- Logic for hitting an UP character ---
+                    const characterType = hole.dataset.type;
+                    hole.classList.remove('up'); // Hide character immediately
 
-                if (characterType === 'pig') {
-                    score++;
-                    scoreDisplay.textContent = score;
-                    hole.classList.add('hit'); // Add hit animation class
-                    setTimeout(() => hole.classList.remove('hit'), 300);
-                } else if (characterType === 'wolf') {
-                    health--;
+                    if (characterType === 'pig' || characterType === 'chicken') {
+                        score += (characterType === 'pig' ? 1 : 2);
+                        scoreDisplay.textContent = score;
+                        hole.classList.add('hit');
+                        setTimeout(() => hole.classList.remove('hit'), 300);
+                    } else if (characterType === 'wolf') {
+                        health--;
+                        updateHealthDisplay();
+                        if (health <= 0) endGame();
+                    } else if (characterType === 'bomb') {
+                        health -= 2;
+                        updateHealthDisplay();
+                        hole.classList.add('hit'); // Use hit animation
+                        setTimeout(() => hole.classList.remove('hit'), 300);
+                        if (health <= 0) endGame();
+                    }
+                    // Clear type after hit
+                    hole.dataset.type = 'empty';
+                    const charElement = hole.querySelector('.character');
+                    charElement.className = 'character'; // Reset character class
+
+                } else {
+                    // --- Logic for hitting an EMPTY hole ---
+                    health--; // Penalty for missing
                     updateHealthDisplay();
-                    // Optional: Add a different visual/sound effect for hitting wolf
-                    // For now, just decrement health
+                    // Optional: Add a miss sound/visual effect
                     if (health <= 0) {
                         endGame();
                     }
                 }
-                // Clear type after hit
-                hole.dataset.type = 'empty';
-                const charElement = hole.querySelector('.character');
-                charElement.className = 'character'; // Reset character class
             });
         }
     }
@@ -91,10 +105,24 @@ document.addEventListener('DOMContentLoaded', () => {
         hole.classList.remove('up', 'hit');
         characterElement.className = 'character'; // Remove pig/wolf class
 
-        // Decide character type (e.g., 80% pig, 20% wolf)
-        const isPig = Math.random() < 0.8;
-        const characterType = isPig ? 'pig' : 'wolf';
-        const characterClass = isPig ? 'pig' : 'wolf';
+        // Decide character type (e.g., 50% pig, 25% chicken, 15% wolf, 10% bomb)
+        const rand = Math.random();
+        let characterType;
+        let characterClass;
+
+        if (rand < 0.50) {
+            characterType = 'pig';
+            characterClass = 'pig';
+        } else if (rand < 0.75) {
+            characterType = 'chicken';
+            characterClass = 'chicken';
+        } else if (rand < 0.90) {
+            characterType = 'wolf';
+            characterClass = 'wolf';
+        } else {
+            characterType = 'bomb';
+            characterClass = 'bomb';
+        }
 
         hole.dataset.type = characterType;
         characterElement.classList.add(characterClass);

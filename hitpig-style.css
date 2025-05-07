@@ -111,6 +111,16 @@ header h1 {
     height: 75%;
 }
 
+.chicken { /* New style for chicken */
+    background-image: url('https://img.icons8.com/emoji/96/chicken-emoji.png'); /* Placeholder chicken emoji URL */
+}
+
+.bomb { /* New style for bomb */
+    background-image: url('https://img.icons8.com/emoji/96/bomb-emoji.png'); /* Placeholder bomb emoji URL */
+    width: 65%; /* Bombs might be slightly smaller */
+    height: 65%;
+}
+
 .hole.up .character { /* Changed to .character */
     bottom: 5%;
 }
