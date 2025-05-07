@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Hit The Pig!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="hitpig-style.css">
+</head>
+<body>
+    <div id="game-container">
+        <header>
+            <h1>Hit The Pig!</h1>
+            <div id="score-board">Score: <span id="score">0</span></div>
+            <div id="timer-board">Time: <span id="time-left">30</span>s</div>
+            <div id="health-board">Health: <span id="health">❤️❤️❤️❤️❤️</span></div>
+        </header>
+        <main id="game-area">
+            <!-- Holes will be generated here by JavaScript -->
+        </main>
+        <div id="start-screen" class="overlay">
+            <h2>Whack-a-Pig!</h2>
+            <button id="start-button">Start Game</button>
+        </div>
+        <div id="game-over-screen" class="overlay" style="display: none;">
+            <h2>Game Over!</h2>
+            <p>Your Final Score: <span id="final-score">0</span></p>
+            <button id="restart-button">Play Again</button>
+        </div>
+    </div>
+    <script src="hitpig-script.js"></script>
+</body>
+</html>

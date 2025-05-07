@@ -7,7 +7,8 @@ This file provides a high-level overview of the project and the expected product
 
 ## Project Goal
 
-* Create a side-scrolling runner HTML-based mobile game where a pig jumps over obstacles.
+* Create a side-scrolling runner HTML-based mobile game where a pig jumps over obstacles (current: `index.html`).
+* Create a Whack-a-Mole style game with pigs, in portrait mode for mobile, with a fun UI (new: `hitpig.html`).
 
 ## Key Features
 
@@ -18,3 +19,4 @@ This file provides a high-level overview of the project and the expected product
 *
 2025-07-05 22:17:29 - Project goal changed from "Hit the Pig" to "Flappy Pig" concept.
 2025-07-05 22:29:17 - Project goal changed from "Flappy Pig" to "Jumping Pig Runner" concept.
+2025-07-05 22:48:23 - Added new project goal: "HitPig Whack-a-Mole" game.
