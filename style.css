@@ -1,0 +1,118 @@
+body {
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #87CEEB; /* Sky blue background */
+    color: #fff;
+    overflow: hidden;
+}
+
+#game-container {
+    text-align: center;
+    position: relative; /* For overlay positioning */
+}
+
+#stats-display {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px; /* Span across the top */
+    display: flex;
+    justify-content: space-between; /* Puts score left, lives right */
+    align-items: center;
+    z-index: 10;
+    padding: 5px;
+}
+
+#score-board, #lives-board {
+    font-size: 1.2em; /* Adjusted for two items */
+    text-shadow: 2px 2px #000;
+    padding: 5px 10px;
+    background-color: rgba(0,0,0,0.2); /* Slight dark background for readability */
+    border-radius: 5px;
+}
+
+#score-board {
+    color: #FFD700; /* Gold color for score */
+}
+
+#lives-board {
+    color: #FF6347; /* Tomato red for lives text, hearts will be emoji color */
+}
+
+#lives-board #lives {
+    color: red; /* Explicitly color the heart emojis red if needed, though emoji color usually persists */
+}
+
+
+#game-canvas {
+    border: 3px solid #333;
+    background-color: #70c5ce; /* Lighter sky for canvas */
+    display: block; /* Remove extra space below canvas */
+    margin: 0 auto; /* Center canvas if container is wider */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    z-index: 20;
+}
+
+.overlay h1 {
+    font-size: 2.5em;
+    color: #FFD700;
+    text-shadow: 3px 3px #000;
+    margin-bottom: 20px;
+}
+
+.overlay h2 {
+    font-size: 2em;
+    color: #FF6347; /* Tomato red for Game Over */
+    text-shadow: 2px 2px #000;
+    margin-bottom: 15px;
+}
+
+.overlay p {
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+.overlay .controls {
+    font-size: 0.8em;
+    color: #ccc;
+}
+
+#restart-button {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1em;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    text-shadow: 1px 1px #000;
+}
+
+#restart-button:hover {
+    background-color: #45a049;
+}
+
+/* Pig (will be drawn on canvas, but can have a class if needed for other things) */
+/* .pig-sprite { ... } */
+
+/* Pipes (will be drawn on canvas) */
