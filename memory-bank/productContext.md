@@ -7,7 +7,7 @@ This file provides a high-level overview of the project and the expected product
 
 ## Project Goal
 
-* Create a Flappy Bird style HTML-based mobile game using a pig character, with enhanced graphics.
+* Create a side-scrolling runner HTML-based mobile game where a pig jumps over obstacles.
 
 ## Key Features
 
@@ -17,3 +17,4 @@ This file provides a high-level overview of the project and the expected product
 
 *
 2025-07-05 22:17:29 - Project goal changed from "Hit the Pig" to "Flappy Pig" concept.
+2025-07-05 22:29:17 - Project goal changed from "Flappy Pig" to "Jumping Pig Runner" concept.

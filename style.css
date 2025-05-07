@@ -13,47 +13,46 @@ body {
 #game-container {
     text-align: center;
     position: relative; /* For overlay positioning */
+    border: 5px solid #654321; /* Brown border, like a frame */
+    background-color: #70c5ce; /* Lighter sky for canvas area */
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
-#stats-display {
+#stats-display { /* This ID was in Flappy Bird, reusing concept for score/lives */
     position: absolute;
     top: 10px;
     left: 10px;
-    right: 10px; /* Span across the top */
+    right: 10px;
     display: flex;
-    justify-content: space-between; /* Puts score left, lives right */
+    justify-content: space-between;
     align-items: center;
     z-index: 10;
-    padding: 5px;
 }
 
 #score-board, #lives-board {
-    font-size: 1.2em; /* Adjusted for two items */
+    font-size: 1.2em;
     text-shadow: 2px 2px #000;
     padding: 5px 10px;
-    background-color: rgba(0,0,0,0.2); /* Slight dark background for readability */
+    background-color: rgba(0,0,0,0.2);
     border-radius: 5px;
 }
 
 #score-board {
-    color: #FFD700; /* Gold color for score */
+    color: #FFD700; /* Gold */
 }
 
 #lives-board {
-    color: #FF6347; /* Tomato red for lives text, hearts will be emoji color */
+    color: #FF6347; /* Tomato Red */
 }
 
 #lives-board #lives {
-    color: red; /* Explicitly color the heart emojis red if needed, though emoji color usually persists */
+    color: red; /* Ensure hearts are red */
 }
 
-
 #game-canvas {
-    border: 3px solid #333;
-    background-color: #70c5ce; /* Lighter sky for canvas */
-    display: block; /* Remove extra space below canvas */
-    margin: 0 auto; /* Center canvas if container is wider */
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    display: block;
+    margin: 0 auto;
+    /* background-color will be handled by drawing ground/sky in JS */
 }
 
 .overlay {
@@ -62,7 +61,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.75);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -73,27 +72,22 @@ body {
 }
 
 .overlay h1 {
-    font-size: 2.5em;
+    font-size: 2em; /* Adjusted for runner game title */
     color: #FFD700;
     text-shadow: 3px 3px #000;
     margin-bottom: 20px;
 }
 
 .overlay h2 {
-    font-size: 2em;
-    color: #FF6347; /* Tomato red for Game Over */
+    font-size: 1.8em;
+    color: #FF6347;
     text-shadow: 2px 2px #000;
     margin-bottom: 15px;
 }
 
 .overlay p {
-    font-size: 1em;
+    font-size: 0.9em;
     margin-bottom: 20px;
-}
-
-.overlay .controls {
-    font-size: 0.8em;
-    color: #ccc;
 }
 
 #restart-button {
@@ -112,7 +106,4 @@ body {
     background-color: #45a049;
 }
 
-/* Pig (will be drawn on canvas, but can have a class if needed for other things) */
-/* .pig-sprite { ... } */
-
-/* Pipes (will be drawn on canvas) */
+/* Elements like pig and obstacles will be drawn on canvas */
