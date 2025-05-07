@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Pipe properties
     const pipes = [];
     const pipeWidth = 50;
-    const pipeGap = 140; // Increased from 120
+    const pipeGap = 160; // Increased from 120
     const pipeSpeed = 2;
     const pipeSpawnInterval = 120; // Frames between new pipes
 
